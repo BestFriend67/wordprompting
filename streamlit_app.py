@@ -14,7 +14,7 @@ if uploaded_file is not None:
 
     # To read file as string:
     string_data = stringio.read()
-    st.write(string_data)
+    # st.write(string_data)
 
     # Can be used wherever a "file-like" object is accepted:
     dataframe = pd.read_csv(uploaded_file)
