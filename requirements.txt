@@ -1,4 +1,3 @@
 openai
-csv
 pandas
 streamlit
