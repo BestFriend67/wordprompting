@@ -57,7 +57,7 @@ if uploaded_file is not None:
 if text_input:
 
     response = client.chat.completions.create(
-        model=CHAT_MODEL,
+        model="gpt-4-0125-preview",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": f"Provide definitions of {text_input}"}
