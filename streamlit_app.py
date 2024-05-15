@@ -18,7 +18,7 @@ text_input = st.text_input(
 if uploaded_file is not None:
     
     dataframe = pd.read_excel(uploaded_file, sheet_name=None)
-    dataframe = dataframe["Sheet1 (2)"]["Word"] 
+    dataframe = dataframe["Sheet1"]["Word"] 
 
     file_name = uploaded_file.name.split(".")[0] + "_result.csv"
 
