@@ -2,37 +2,18 @@ import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
-import os
 from utils import *
 import csv
 
-load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-CHAT_MODEL = os.getenv("CHAT_MODEL")
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+print(OPENAI_API_KEY)
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 uploaded_file = st.file_uploader("Choose a CSV file")
 text_input = st.text_input(
     "Enter the word 👇"
 )
-
-# df = pd.read_csv("Definition 2024 04 23_result.csv")
-
-# @st.cache
-# def convert_df(df):
-#     return df.to_csv().encode('utf-8')
-
-
-# csv = convert_df(df)
-
-# st.download_button(
-#     "Press to Download",
-#     csv,
-#     "browser_visits.csv",
-#     "text/csv",
-#     key='browser-data'
-# )
 
 
 if uploaded_file is not None:
@@ -55,7 +36,7 @@ if uploaded_file is not None:
                     print("data: ", data)
 
                     response = client.chat.completions.create(
-                        model=CHAT_MODEL,
+                        model="gpt-4-0125-preview",
                         messages=[
                             {"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": f"Provide definitions of {data}"}
