@@ -1,0 +1,4 @@
+openai
+csv
+pandas
+streamlit
